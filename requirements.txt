@@ -1,0 +1,10 @@
+numpy
+pandas
+nltk
+sqlalchemy
+scikit-learn
+jupyterlab
+Flask
+matplotlib
+hist
+plotly

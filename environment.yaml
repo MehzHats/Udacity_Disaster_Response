@@ -1,0 +1,4 @@
+name: disaster_response
+dependencies:
+  - python=3.10
+  - pip
