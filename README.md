@@ -51,7 +51,7 @@ pip install -r requirements.txt
 
 1. This is an example of a message you can type to test Machine Learning model performance
 
-![Sample Input](/Users/mehz/Lab/Udacity_Disaster_Response/images/message_result.png)
+![Screenshots](/images/message_result.png)
 
 
 
