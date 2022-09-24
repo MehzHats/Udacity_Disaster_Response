@@ -15,7 +15,7 @@ from sqlalchemy import create_engine
 from sklearn.metrics import classification_report
 from sklearn.ensemble import RandomForestClassifier
 
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.multioutput import MultiOutputClassifier
@@ -86,15 +86,13 @@ def build_model():
         ('clf', MultiOutputClassifier(RandomForestClassifier()))
     ])
 
-    # parameters = {
-    #             # 'vect__min_df': [],
-    # #             'tfidf__use_idf': [],
-    #              'clf__estimator__n_estimators': [25,50],
-    #              'clf__estimator__min_samples_split': [2,4]
-    # }
-    # model = GridSearchCV(pipeline, param_grid=parameters)
+    parameters = {
+        'clf__estimator__n_estimators': [5,15],
+        'clf__estimator__min_samples_split': [2,4]
+    }
+    model = GridSearchCV(pipeline, param_grid=parameters)
 
-    return pipeline
+    return model
 
 
 def evaluate_model(model, X_test, Y_test):

@@ -1,17 +1,19 @@
 # Udacity's Disaster Response Pipeline Project
 
 ## Project Description
-The Disaster Response Pipeline is a part of the Nanodegree Program by Udacity, in collaboration with Figure Eight. For this project we have built a Machine Learning model that classifies the emergency of the message from real-life disasters events ,based on the information and needs communicated by the sender. This also includes a web app where a new message can be classification results in the 36 pre-defined categories.
+The Disaster Response Pipeline is a part of the Nanodegree Program by Udacity, in collaboration with Appen (formerly Figure Eight). For this project we have built a Machine Learning model that classifies the emergency of the message from real-life disaster events, based on the information and needs communicated by the sender. This also includes a web app where a new message is classified in to 36 pre-defined categories.
 
 ## Project Components
 The project is divided in three major parts
 
 ### 1. ETL Pipeline
 Data Processing Pipeline, to load data from source, merge and clean the data and save it in a SQLite database.
+
 ### 2. ML Pipeline
-2. Machine Learning Pipeline, to load the SQLite database, split the dataset into training and test sets, build and train the model using GridSearchCV and export the final model as pkl file.
+Machine Learning Pipeline, to load preprocessed data from the SQLite database, split the dataset into training and test sets, build and train the model using GridSearchCV and export the final model as pkl file.
+
 ### 3. Flask Web App
-3. Web App to show data visualisation and model results using Plotly in real time.
+Web App to show data visualisation of the trained data using Plotly. An interactive portal is available to use model in real time.
 
 ## Getting Started
 
@@ -54,18 +56,38 @@ A requirements.txt file is created to install all the dependencies needed for th
 
 ![message_result](images/message_result.png)
 
-2. This is the data visualisation for the least 10 categories.
+2. Data visualisation for the least 10 categories.
 
 ![least_categories](images/least_categories.png)
 
-3. This is the data visualisation for the message category distribution.
+3. Data visualisation for the message category distribution.
 
 ![least_categories](images/message_cat_dist.png)
 
-4. This is the data visualisation for the words count distribution.
+4. Data visualisation for the words count distribution.
 
 ![least_categories](images/word_count_dist.png)
 
+5. The f1 score, precision and recall for the test set output is shown for each category.
+
+model_metrics_1             |  model_metrics_2
+:-------------------------:|:-------------------------:
+![](images/model_metrics/model_metrics_1.png )  |  ![](images/model_metrics/model_metrics_2.png)
+
+
+model_metrics_3             |  model_metrics_4
+:-------------------------:|:-------------------------:
+![](images/model_metrics/model_metrics_3.png )  |  ![](images/model_metrics/model_metrics_4.png)
+
+
+model_metrics_4             |  model_metrics_6
+:-------------------------:|:-------------------------:
+![](images/model_metrics/model_metrics_5.png )  |  ![](images/model_metrics/model_metrics_6.png)
+
+
+model_metrics_7             |  model_metrics_8
+:-------------------------:|:-------------------------:
+![](images/model_metrics/model_metrics_3.png )  |  ![](images/model_metrics/model_metrics_4.png)
 
 ## Acknowledgements
 
