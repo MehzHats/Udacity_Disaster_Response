@@ -23,8 +23,9 @@ Data Processing Pipeline, to load data from source, merge and clean the data and
 4. SQLlite Database Libraqries: SQLalchemy
 5. Web App and Data Visualization: Flask, Plotly
 
-A requirements.txt file is created to install all the dependencies needed for this project,
-pip install -r requirements.txt
+A requirements.txt file is created to install all the dependencies needed for this project. To install them run following command.
+
+```pip install -r requirements.txt```
 
 ## Authors
 * [MehzHats](https://github.com/MehzHats)
@@ -49,14 +50,24 @@ pip install -r requirements.txt
 
 ## Screenshots
 
-1. This is an example of a message you can type to test Machine Learning model performance
+1. This is an example of a message you can type to test Machine Learning model performance.
 
-![Screenshots](/images/message_result.png)
+![message_result](images/message_result.png)
 
+2. This is the data visualisation for the least 10 categories.
 
+![least_categories](images/least_categories.png)
+
+3. This is the data visualisation for the message category distribution.
+
+![least_categories](images/message_cat_dist.png)
+
+4. This is the data visualisation for the words count distribution.
+
+![least_categories](images/word_count_dist.png)
 
 
 ## Acknowledgements
 
 * [Udacity](https://www.udacity.com/) Data Science Nanodegree Program
-* [Appen](https://appen.com/)Data from Appen (formally Figure 8) to build a model for an API that classifies disaster messages.
+* [Appen](https://appen.com/) Data from Appen (formally Figure 8) to build a model for an API that classifies disaster messages.

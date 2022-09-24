@@ -7,7 +7,7 @@ from nltk.tokenize import word_tokenize
 
 from flask import Flask
 from flask import render_template, request
-from plotly.graph_objs import Bar, Line
+from plotly.graph_objs import Bar, Line, Waterfall
 from sqlalchemy import create_engine
 
 
@@ -42,11 +42,11 @@ def index():
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
 
+    least_category_count = df.iloc[:,4:].sum().sort_values(ascending=True)[0:10]
+    least_category_names = list(least_category_count.index)
 
-    category_columns = set(df.columns) - set(['genre', 'message', 'id'])
-    category_data = df[category_columns]
-    category_boolean = (category_data != 0).sum().values
-    category_counts = df[category_columns].sum()
+    Message_counts = df.drop(['id','message','original','genre', 'related'], axis=1).sum().sort_values(ascending=False)
+    Message_names = list(Message_counts.index)
 
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
@@ -73,27 +73,32 @@ def index():
         {
             'data': [
                 Bar(
-                    x=list(category_counts.index),
-                    y=category_counts
+                    x=least_category_names,
+                    y=least_category_count
                 )
             ],
             'layout': {
-                'title': 'Distribution of Categories',
-                'yaxis': { 'title': 'Count' },
-                'xaxis': { 'title': 'Category', 'tickangle': 35}
+                'title': 'Least 10 Categories',
+                'yaxis': {
+                    'title': 'Count'
+                },
+                'xaxis': {
+                    'title': 'Category',
+                    'tickangle': 35
+                }
             }
         },
         # GRAPH 3 - category graph
         {
             'data': [
                 Bar(
-                    x=list(category_columns),
-                    y=category_boolean
+                    x=Message_names,
+                    y=Message_counts
                 )
             ],
 
             'layout': {
-                'title': 'Distribution of Message Categories',
+                'title': 'Message Category Distribution',
                 'yaxis': {
                     'title': "Count"
                 },
@@ -111,9 +116,13 @@ def index():
                 )
             ],
             'layout': {
-                'title': "Distribution of Words Counts",
-                'yaxis': { 'title': 'Count', },
-                'xaxis': { 'title': 'Number of words in message'}
+                'title': "Words Count Distribution",
+                'yaxis': {
+                    'title': 'Count'
+                },
+                'xaxis': {
+                    'title': 'Number of words'
+                }
             }
         }
     ]
